@@ -15,8 +15,8 @@ async fn main() -> Result<(), Report> {
 
     let client = Client::new();
 
-    fetch_url(&client, URL_1);
-    fetch_url(&client, URL_2);
+    fetch_url(&client, URL_1).await?;
+    fetch_url(&client, URL_2).await?;
 
     let url = "https://www.kirima.xyz/";
 
