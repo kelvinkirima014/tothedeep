@@ -17,7 +17,7 @@ async fn main() -> Result<(), Report> {
     let url = "https://www.kirima.xyz/";
 
     let res = client.get(url).send().await?.error_for_status()?;
-    info!(%url, content_type = ?res.headers().get("content-type"));
+    info!(%url, content_type = ?res.headers().get("content-type"), "Got a Response");
 
     Ok(())
 }
@@ -41,6 +41,6 @@ fn setup() -> Result<(), Report> {
 
 async fn fetch_url(client: &Client, url: &str) -> Result<(), Report> {
     let res = client.get(url).send().await?.error_for_status()?;
-    info!(%url, content_type = ?res.headers().get("content-type"));
+    info!(%url, content_type = ?res.headers().get("content-type"), "Got response");
     Ok(())
 }
