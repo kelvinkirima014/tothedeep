@@ -18,11 +18,6 @@ async fn main() -> Result<(), Report> {
     fetch_url(&client, URL_1).await?;
     fetch_url(&client, URL_2).await?;
 
-    let url = "https://www.kirima.xyz/";
-
-    let res = client.get(url).send().await?.error_for_status()?;
-    info!(%url, content_type = ?res.headers().get("content-type"), "Got a Response");
-
     Ok(())
 }
 
