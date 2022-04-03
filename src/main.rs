@@ -7,9 +7,8 @@ mod testfuture;
 pub const URL_1: &str = "https://www.kirima.xyz/post/sha256";
 pub const URL_2: &str = "https://www.kirima.xyz/post/gentleintrosolana";
 
-
 #[tokio::main]
-async fn main() -> Result<(), Report> {
+ async fn main() -> Result<(), Report> {
     setup()?;
 
     info!("Hello, world!");
@@ -39,8 +38,8 @@ fn setup() -> Result<(), Report> {
     Ok(())
 }
 
-async fn fetch_url(client: &Client, url: &str) -> Result<(), Report> {
+ async fn fetch_url(client: &Client, url: &str) -> Result<(), Report> {
     let res = client.get(url).send().await?.error_for_status()?;
-    info!(%url, content_type = ?res.headers().get("content-type"), "Got response");
+    info!(url, content_type = ?res.headers().get("content-type"));
     Ok(())
-}
+ }
