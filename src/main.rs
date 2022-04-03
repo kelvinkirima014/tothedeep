@@ -2,6 +2,7 @@ use color_eyre::Report;
 use tracing::info;
 use tracing_subscriber::EnvFilter;
 use reqwest::Client;
+mod testfuture;
 
 pub const URL_1: &str = "https://www.kirima.xyz/post/sha256";
 pub const URL_2: &str = "https://www.kirima.xyz/post/gentleintrosolana";
