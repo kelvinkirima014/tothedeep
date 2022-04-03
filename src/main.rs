@@ -12,11 +12,13 @@ pub const URL_2: &str = "https://www.kirima.xyz/post/gentleintrosolana";
     setup()?;
 
     info!("Hello, world!");
+    info!("Building a testfuture");
 
-    let client = &Client::new();
+    let fut = testfuture::TestFuture {};
+    info!("Awaiting the future");
+    fut.await;
+    info!("Done awaiting that dumb future");
 
-    fetch_url(client, URL_1).await?;
-    fetch_url(client, URL_2).await?;
 
     Ok(())
 }
@@ -38,8 +40,8 @@ fn setup() -> Result<(), Report> {
     Ok(())
 }
 
- async fn fetch_url(client: &Client, url: &str) -> Result<(), Report> {
-    let res = client.get(url).send().await?.error_for_status()?;
-    info!(url, content_type = ?res.headers().get("content-type"));
-    Ok(())
- }
+ //async fn fetch_url(client: &Client, url: &str) -> Result<(), Report> {
+ //   let res = client.get(url).send().await?.error_for_status()?;
+   // info!(url, content_type = ?res.headers().get("content-type"));
+  //  Ok(())
+ //}
