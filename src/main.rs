@@ -14,10 +14,10 @@ async fn main() -> Result<(), Report> {
 
     info!("Hello, world!");
 
-    let client = Client::new();
+    let client = &Client::new();
 
-    fetch_url(&client, URL_1).await?;
-    fetch_url(&client, URL_2).await?;
+    fetch_url(client, URL_1).await?;
+    fetch_url(client, URL_2).await?;
 
     Ok(())
 }
