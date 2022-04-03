@@ -13,6 +13,5 @@ impl Future for TestFuture {
 
 	fn poll(self: Pin<&mut Self>, _cx: &mut Context) -> Poll<Self::Output> {
 		panic!("Oh noes");
-		Poll::Ready(())
 	}
 }
